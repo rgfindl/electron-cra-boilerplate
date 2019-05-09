@@ -36,7 +36,7 @@
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" --kill-others",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw"
@@ -50,12 +50,18 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "rescripts": [
+    "env"
+  ],
   "devDependencies": {
     "@rescripts/cli": "^0.0.10",
     "@rescripts/rescript-env": "^0.0.5",
     "concurrently": "^4.1.0",
     "electron": "^4.0.6",
     "electron-builder": "^20.38.5",
+    "electron-devtools-installer": "^2.2.4",
+    "node-sass": "^4.11.0",
+    "cross-env": "^5.2.0",
     "typescript": "^3.3.3333",
     "wait-on": "^3.2.0"
   }
